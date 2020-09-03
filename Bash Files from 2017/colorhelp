@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo List of Colors
+echo Keywords [black blue cyan green grey magenta red white yellow]
+echo RGB [0-7]

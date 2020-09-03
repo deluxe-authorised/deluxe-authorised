@@ -1,0 +1,64 @@
+#!/bin/bash
+
+arrayf () {
+key=${1}; shift; array=("${@}"); result=1
+for element in ${array[@]}; do
+if [[ ${element} == ${key} ]]; then
+result=0; break
+fi
+done
+return ${result}
+}
+
+help_array=("h" "help")
+help_check="null"
+arrayf "${1}" "${help_array[@]}" && help_check="${help_array[1]}"
+
+if [[ ${1} == "help" ]]; then
+bash /dxchiam/colorhelp
+
+else
+
+array0=( "e" "e0" "black" )
+array1=( "a" "a1" "red" )
+array2=( "k" "k2" "blue" )
+array3=( "g" "g3" "green" )
+array4=( "v" "v4" "yellow" )
+array5=( "d" "d5" "pink" )
+array6=( "q" "q6" "purple" )
+
+choice="null"
+arrayf "${1}" "${array0[@]}" && choice="${array0[1]}"
+arrayf "${1}" "${array1[@]}" && choice="${array1[1]}"
+arrayf "${1}" "${array2[@]}" && choice="${array2[1]}"
+arrayf "${1}" "${array3[@]}" && choice="${array3[1]}"
+arrayf "${1}" "${array4[@]}" && choice="${array4[1]}"
+arrayf "${1}" "${array5[@]}" && choice="${array5[1]}"
+arrayf "${1}" "${array6[@]}" && choice="${array6[1]}"
+
+if [[ ${choice} == "e0" ]]; then
+bash /dxchiam/colorset 7 0 on
+
+elif [[ ${choice} == "a1" ]]; then
+bash /dxchiam/colorset 1 0 on
+
+elif [[ ${choice} == "k2" ]]; then
+bash /dxchiam/colorset 4 0 on
+
+elif [[ ${choice} == "g3" ]]; then
+bash /dxchiam/colorset 2 0 on
+
+elif [[ ${choice} == "v4" ]]; then
+bash /dxchiam/colorset 3 0 on
+
+elif [[ ${choice} == "d5" ]]; then
+bash /dxchiam/colorset 5 0 on
+
+elif [[ ${choice} == "q6" ]]; then
+bash /dxchiam/colorset 5 0 off
+
+else
+bash /dxchiam/colorset $1 $2 $3
+fi
+
+fi

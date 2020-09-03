@@ -1,0 +1,3 @@
+#!/bin/bash
+
+setterm -term linux -fore $1 -back $2 -bold $3

@@ -1,0 +1,79 @@
+#!/bin/bash
+
+#declare no collapse white spaces
+IFS='%'
+
+#20 white spaces in front
+front="                    "
+
+#colon use 4-3-5-3-4
+c0="          "
+c1="  ::::::  "
+
+#num block use
+bL0="         "
+bL1="   ::::::"
+bM0="            "
+bM1="::::::::::::"
+bR0="         "
+bR1="::::::   "
+
+#num use 3-5-3-5-3
+num0=( ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM1}${bR1} )
+num1=( ${bL0}${bM0}${bR1} ${bL0}${bM0}${bR1} ${bL0}${bM0}${bR1} ${bL0}${bM0}${bR1} ${bL0}${bM0}${bR1} )
+num2=( ${bL1}${bM1}${bR1} ${bL0}${bM0}${bR1} ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR0} ${bL1}${bM1}${bR1} )
+num3=( ${bL1}${bM1}${bR1} ${bL0}${bM0}${bR1} ${bL1}${bM1}${bR1} ${bL0}${bM0}${bR1} ${bL1}${bM1}${bR1} )
+num4=( ${bL1}${bM0}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM1}${bR1} ${bL0}${bM0}${bR1} ${bL0}${bM0}${bR1} )
+num5=( ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR0} ${bL1}${bM1}${bR1} ${bL0}${bM0}${bR1} ${bL1}${bM1}${bR1} )
+num6=( ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR0} ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM1}${bR1} )
+num7=( ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM0}${bR1} ${bL0}${bM0}${bR1} ${bL0}${bM0}${bR1} )
+num8=( ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM1}${bR1} )
+num9=( ${bL1}${bM1}${bR1} ${bL1}${bM0}${bR1} ${bL1}${bM1}${bR1} ${bL0}${bM0}${bR1} ${bL1}${bM1}${bR1} )
+numarr=( ${num0[@]} ${num1[@]} ${num2[@]} ${num3[@]} ${num4[@]} ${num5[@]} ${num6[@]} ${num7[@]} ${num8[@]} ${num9[@]} )
+
+while true; do
+
+#24 empty lines in front
+echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+echo;echo;echo;echo
+
+#19 filled lines working
+timestr=$(date +%H%M%S)
+
+for i in {0..18}; do
+
+if [[ "$i" -lt 3 ]]; then
+echo ${front}${numarr[${timestr:0:1}*5+0]}${numarr[${timestr:1:1}*5+0]}${c0}${numarr[${timestr:2:1}*5+0]}${numarr[${timestr:3:1}*5+0]}${c0}${numarr[${timestr:4:1}*5+0]}${numarr[${timestr:5:1}*5+0]}
+
+elif [[ "$i" -lt 8 ]]; then
+
+if [[ "$i" -ge 4 && "$i" -le 6 ]]; then
+echo ${front}${numarr[${timestr:0:1}*5+1]}${numarr[${timestr:1:1}*5+1]}${c1}${numarr[${timestr:2:1}*5+1]}${numarr[${timestr:3:1}*5+1]}${c1}${numarr[${timestr:4:1}*5+1]}${numarr[${timestr:5:1}*5+1]}
+else
+echo ${front}${numarr[${timestr:0:1}*5+1]}${numarr[${timestr:1:1}*5+1]}${c0}${numarr[${timestr:2:1}*5+1]}${numarr[${timestr:3:1}*5+1]}${c0}${numarr[${timestr:4:1}*5+1]}${numarr[${timestr:5:1}*5+1]}
+fi
+
+elif [[ "$i" -lt 11 ]]; then
+echo ${front}${numarr[${timestr:0:1}*5+2]}${numarr[${timestr:1:1}*5+2]}${c0}${numarr[${timestr:2:1}*5+2]}${numarr[${timestr:3:1}*5+2]}${c0}${numarr[${timestr:4:1}*5+2]}${numarr[${timestr:5:1}*5+2]}
+
+elif [[ "$i" -lt 16 ]]; then
+
+if [[ "$i" -ge 12 && "$i" -le 14 ]]; then
+echo ${front}${numarr[${timestr:0:1}*5+3]}${numarr[${timestr:1:1}*5+3]}${c1}${numarr[${timestr:2:1}*5+3]}${numarr[${timestr:3:1}*5+3]}${c1}${numarr[${timestr:4:1}*5+3]}${numarr[${timestr:5:1}*5+3]}
+else
+echo ${front}${numarr[${timestr:0:1}*5+3]}${numarr[${timestr:1:1}*5+3]}${c0}${numarr[${timestr:2:1}*5+3]}${numarr[${timestr:3:1}*5+3]}${c0}${numarr[${timestr:4:1}*5+3]}${numarr[${timestr:5:1}*5+3]}
+fi
+
+else
+echo ${front}${numarr[${timestr:0:1}*5+4]}${numarr[${timestr:1:1}*5+4]}${c0}${numarr[${timestr:2:1}*5+4]}${numarr[${timestr:3:1}*5+4]}${c0}${numarr[${timestr:4:1}*5+4]}${numarr[${timestr:5:1}*5+4]}
+fi
+
+done
+
+#24 empty lines at the rear
+echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+echo;echo;echo;echo
+
+sleep 1; clear; done
