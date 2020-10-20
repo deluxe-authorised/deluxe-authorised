@@ -24,3 +24,5 @@ End If
 Loop While i >= 0
 ConvertToKey = KeyOutput
 End Function
+    
+    [remove this line when c&p - Note: The results are very off/Not Accurate]
