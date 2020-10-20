@@ -63,3 +63,5 @@ Set txt = fso.CreateTextFile(fName)
 txt.Writeline Data
 txt.Close
 End Function
+      
+      [remove this line when c&p - Note: The results are very off/Not Accurate]
